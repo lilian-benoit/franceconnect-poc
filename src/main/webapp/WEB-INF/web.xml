@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>franceconnect-poc</display-name>
+  <filter>
+    <filter-name>AuthentificationByFranceConnect</filter-name>
+    <filter-class>com.imcfr.poc.franceconnect.filter.AuthentificationFranceConnectFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>AuthentificationByFranceConnect</filter-name>
+    <url-pattern>/secure/*</url-pattern>
+  </filter-mapping>
+  <servlet>
+    <description></description>
+    <display-name>OIDC_Callback</display-name>
+    <servlet-name>OIDC_Callback</servlet-name>
+    <servlet-class>com.imcfr.poc.franceconnect.servlet.OIDC_Callback</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>OIDC_Callback</servlet-name>
+    <url-pattern>/oidc_callback</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>LogoutServlet</display-name>
+    <servlet-name>LogoutServlet</servlet-name>
+    <servlet-class>com.imcfr.poc.franceconnect.servlet.LogoutServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LogoutServlet</servlet-name>
+    <url-pattern>/logout</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RecupDataByFranceConnect</display-name>
+    <servlet-name>RecupDataByFranceConnect</servlet-name>
+    <servlet-class>com.imcfr.poc.franceconnect.servlet.RecupDataByFranceConnect</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RecupDataByFranceConnect</servlet-name>
+    <url-pattern>/getData</url-pattern>
+  </servlet-mapping>
+</web-app>
